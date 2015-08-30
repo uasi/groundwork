@@ -14,7 +14,7 @@ resource "aws_route53_zone" "exsen-org" {
     name = "exsen.org"
 }
 
-resource "aws_route53_record" "www" {
+resource "aws_route53_record" "exsen-org_a" {
     zone_id = "${aws_route53_zone.exsen-org.zone_id}"
     name = "exsen.org"
     type = "A"
@@ -22,7 +22,7 @@ resource "aws_route53_record" "www" {
     records = ["54.225.69.146"]
 }
 
-resource "aws_route53_record" "kill1000favs" {
+resource "aws_route53_record" "exsen-org_cname_kill1000favs" {
     zone_id = "${aws_route53_zone.exsen-org.zone_id}"
     name = "kill1000favs"
     type = "CNAME"
@@ -30,7 +30,7 @@ resource "aws_route53_record" "kill1000favs" {
     records = ["kill1000favs.herokuapp.com"]
 }
 
-resource "aws_route53_record" "playground" {
+resource "aws_route53_record" "exsen-org_cname_playground" {
     zone_id = "${aws_route53_zone.exsen-org.zone_id}"
     name = "playground"
     type = "CNAME"
@@ -38,7 +38,7 @@ resource "aws_route53_record" "playground" {
     records = ["playground-exsen-org.herokuapp.com"]
 }
 
-resource "aws_route53_record" "vaporbin" {
+resource "aws_route53_record" "exsen-org_cname_vaporbin" {
     zone_id = "${aws_route53_zone.exsen-org.zone_id}"
     name = "vaporbin"
     type = "CNAME"
