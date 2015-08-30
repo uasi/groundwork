@@ -12,6 +12,9 @@ provider "aws" {
 
 resource "aws_route53_zone" "exsen-org" {
     name = "exsen.org"
+    lifecycle {
+        prevent_destroy = true
+    }
 }
 
 resource "aws_route53_record" "exsen-org_a" {
