@@ -1,15 +1,3 @@
-variable "aws_access_key_id" {}
-variable "aws_secret_access_key" {}
-variable "aws_region" {
-    default = "ap-northeast-1"
-}
-
-provider "aws" {
-    access_key = "${var.aws_access_key_id}"
-    secret_key = "${var.aws_secret_access_key}"
-    region = "${var.aws_region}"
-}
-
 resource "aws_route53_zone" "exsen-org" {
     name = "exsen.org"
     lifecycle {
