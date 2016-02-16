@@ -10,7 +10,7 @@ resource "aws_route53_record" "opts-io_a" {
     name = "opts.io"
     type = "A"
     ttl = "300"
-    records = ["188.166.208.27"]
+    records = ["133.130.102.137"]
 }
 
 resource "aws_route53_record" "opts-io_awild" {
@@ -18,5 +18,5 @@ resource "aws_route53_record" "opts-io_awild" {
     name = "*"
     type = "A"
     ttl = "300"
-    records = ["188.166.208.27"]
+    records = ["133.130.102.137"]
 }
