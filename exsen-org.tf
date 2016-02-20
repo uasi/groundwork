@@ -36,3 +36,13 @@ resource "aws_route53_record" "exsen-org_cname_vaporbin" {
     ttl = "300"
     records = ["vaporbin.herokuapp.com"]
 }
+
+resource "aws_route53_record" "exsen-org_txt" {
+    zone_id = "${aws_route53_zone.exsen-org.zone_id}"
+    name = "exsen.org"
+    type = "TXT"
+    ttl = "300"
+    records = [
+      "keybase-site-verification=KucCG3jo_NJtA3GIxf9ozHN4DY2p80mkaI0o8K0sSLw"
+    ]
+}
