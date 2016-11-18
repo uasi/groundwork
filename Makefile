@@ -6,7 +6,7 @@ all:
 	@echo 'make apply - apply and push'
 
 plan:
-	terraform remote pull && terraform plan
+	terraform remote pull && terraform plan -out=plan
 
 apply:
-	terraform apply && terraform remote push
+	terraform apply plan && terraform remote push
