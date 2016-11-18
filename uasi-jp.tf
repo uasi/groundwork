@@ -75,10 +75,11 @@ resource "aws_route53_record" "uasi-jp_txt" {
 }
 
 resource "cloudflare_record" "uasi-jp_cname" {
-  domain = "uasi.jp"
-  type   = "CNAME"
-  name   = "uasi.jp"
-  value  = "uasi-jp.herokuapp.com"
+  domain  = "uasi.jp"
+  type    = "CNAME"
+  name    = "uasi.jp"
+  value   = "uasi-jp.herokuapp.com"
+  proxied = true
 }
 
 resource "cloudflare_record" "uasi-jp_cname_blog" {
