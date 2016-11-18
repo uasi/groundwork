@@ -48,3 +48,31 @@ resource "aws_route53_record" "exsen-org_txt" {
     "keybase-site-verification=KucCG3jo_NJtA3GIxf9ozHN4DY2p80mkaI0o8K0sSLw",
   ]
 }
+
+resource "cloudflare_record" "exsen-org_cname" {
+  domain = "exsen.org"
+  type   = "CNAME"
+  name   = "exsen.org"
+  value  = "exsen-org.herokuapp.com"
+}
+
+resource "cloudflare_record" "exsen-org_cname_kill1000favs" {
+  domain = "exsen.org"
+  type   = "CNAME"
+  name   = "kill1000favs"
+  value  = "kill1000favs.herokuapp.com"
+}
+
+resource "cloudflare_record" "exsen-org_cname_vaporbin" {
+  domain = "exsen.org"
+  type   = "CNAME"
+  name   = "vaporbin"
+  value  = "vaporbin.herokuapp.com"
+}
+
+resource "cloudflare_record" "exsen-org_txt" {
+  domain = "exsen.org"
+  type   = "TXT"
+  name   = "exsen.org"
+  value  = "keybase-site-verification=KucCG3jo_NJtA3GIxf9ozHN4DY2p80mkaI0o8K0sSLw"
+}
