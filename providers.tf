@@ -3,3 +3,8 @@ provider "aws" {
   secret_key = "${var.aws_secret_access_key}"
   region     = "${var.aws_region}"
 }
+
+provider "cloudflare" {
+  email = "${var.cloudflare_email}"
+  token = "${var.cloudflare_token}"
+}
