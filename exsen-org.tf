@@ -50,24 +50,27 @@ resource "aws_route53_record" "exsen-org_txt" {
 }
 
 resource "cloudflare_record" "exsen-org_cname" {
-  domain = "exsen.org"
-  type   = "CNAME"
-  name   = "exsen.org"
-  value  = "exsen-org.herokuapp.com"
+  domain  = "exsen.org"
+  type    = "CNAME"
+  name    = "exsen.org"
+  value   = "exsen-org.herokuapp.com"
+  proxied = true
 }
 
 resource "cloudflare_record" "exsen-org_cname_kill1000favs" {
-  domain = "exsen.org"
-  type   = "CNAME"
-  name   = "kill1000favs"
-  value  = "kill1000favs.herokuapp.com"
+  domain  = "exsen.org"
+  type    = "CNAME"
+  name    = "kill1000favs"
+  value   = "kill1000favs.herokuapp.com"
+  proxied = true
 }
 
 resource "cloudflare_record" "exsen-org_cname_vaporbin" {
-  domain = "exsen.org"
-  type   = "CNAME"
-  name   = "vaporbin"
-  value  = "vaporbin.herokuapp.com"
+  domain  = "exsen.org"
+  type    = "CNAME"
+  name    = "vaporbin"
+  value   = "vaporbin.herokuapp.com"
+  proxied = true
 }
 
 resource "cloudflare_record" "exsen-org_txt" {
