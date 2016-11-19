@@ -136,7 +136,7 @@ resource "cloudflare_record" "uasi-jp_mx" {
 }
 
 variable "txt_records" {
-  "default" = [
+  default = [
     "adn_verification=uasi",
     "google-site-verification=RwiI4xfoql9t15C1vEP7znGBSQKzkrPyKOojmgGL714",
     "keybase-site-verification=-ioMIs6ZLP6mFdsY0e1zBjGd52asZIKzWbnPJBzSjSY",
