@@ -1,12 +1,5 @@
 # Groundwork
 
-## Synopsis
-
-```
-make plan  # pull state from remote and then dry-run
-make apply # apply configuration and then push it to remote
-```
-
 ## Links
 
 - [Terraform Doc - Home](https://www.terraform.io/docs/index.html)
