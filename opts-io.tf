@@ -20,3 +20,13 @@ resource "cloudflare_record" "opts-io_txt" {
   name   = "opts.io"
   value  = "keybase-site-verification=tCZRLGFWxKvAWWs6IXiCr2ShB5hq9wW12colDD40gos"
 }
+
+resource "cloudflare_zone_settings_override" "opts-io_zone_settings" {
+  name = "opts.io"
+
+  settings {
+    tls_1_3                  = "on"
+    always_use_https         = "on"
+    automatic_https_rewrites = "on"
+  }
+}
