@@ -6,7 +6,7 @@ resource "cloudflare_record" "opts-io_a" {
   zone_id = local.opts_io_zone_id
   type    = "A"
   name    = "@"
-  value   = "149.28.22.95"
+  value   = "34.83.108.165"
   proxied = true
 }
 
