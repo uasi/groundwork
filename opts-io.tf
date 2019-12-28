@@ -1,5 +1,9 @@
+locals {
+  opts_io_zone_id = "8c81bc29b9c776e5f3170a87b1fc1407"
+}
+
 resource "cloudflare_record" "opts-io_a" {
-  domain  = "opts.io"
+  zone_id = local.opts_io_zone_id
   type    = "A"
   name    = "@"
   value   = "149.28.22.95"
@@ -7,7 +11,7 @@ resource "cloudflare_record" "opts-io_a" {
 }
 
 resource "cloudflare_record" "opts-io_cname_hnr-rec" {
-  domain  = "opts.io"
+  zone_id = local.opts_io_zone_id
   type    = "CNAME"
   name    = "hnr-rec"
   value   = "opts.io"
@@ -15,14 +19,14 @@ resource "cloudflare_record" "opts-io_cname_hnr-rec" {
 }
 
 resource "cloudflare_record" "opts-io_txt" {
-  domain = "opts.io"
+  zone_id = local.opts_io_zone_id
   type   = "TXT"
   name   = "opts.io"
   value  = "keybase-site-verification=tCZRLGFWxKvAWWs6IXiCr2ShB5hq9wW12colDD40gos"
 }
 
 resource "cloudflare_zone_settings_override" "opts-io_zone_settings" {
-  name = "opts.io"
+  zone_id = local.opts_io_zone_id
 
   settings {
     tls_1_3                  = "on"

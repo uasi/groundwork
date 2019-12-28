@@ -1,5 +1,22 @@
 # Groundwork
 
+## Installation
+
+```bash
+cat <<END >> ~/.aws/credentials
+[terraform-groundwork]
+aws_access_key_id = "..."
+aws_secret_access_key = "..."
+END
+
+cat <<END > terraform.tfvars
+cloudflare_email = "..."
+cloudflare_api_key = "..."
+END
+
+terraform init
+```
+
 ## Links
 
 - [Terraform Doc - Home](https://www.terraform.io/docs/index.html)

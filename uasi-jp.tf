@@ -1,5 +1,9 @@
+locals {
+  uasi_jp_zone_id = "08f206e0314f14cb64e289b88aa2fcb3"
+}
+
 resource "cloudflare_record" "uasi-jp_cname" {
-  domain  = "uasi.jp"
+  zone_id = local.uasi_jp_zone_id
   type    = "CNAME"
   name    = "uasi.jp"
   value   = "uasi-jp.herokuapp.com"
@@ -7,31 +11,31 @@ resource "cloudflare_record" "uasi-jp_cname" {
 }
 
 resource "cloudflare_record" "uasi-jp_cname_blog" {
-  domain = "uasi.jp"
-  type   = "CNAME"
-  name   = "blog"
-  value  = "domains.tumblr.com"
+  zone_id = local.uasi_jp_zone_id
+  type    = "CNAME"
+  name    = "blog"
+  value   = "domains.tumblr.com"
 }
 
 resource "cloudflare_record" "uasi-jp_cname_d" {
-  domain = "uasi.jp"
-  type   = "CNAME"
-  name   = "d"
-  value  = "ghs.googlehosted.com"
+  zone_id = local.uasi_jp_zone_id
+  type    = "CNAME"
+  name    = "d"
+  value   = "ghs.googlehosted.com"
 }
 
 resource "cloudflare_record" "uasi-jp_cname_m" {
-  domain = "uasi.jp"
-  type   = "CNAME"
-  name   = "m"
-  value  = "ghs.googlehosted.com"
+  zone_id = local.uasi_jp_zone_id
+  type    = "CNAME"
+  name    = "m"
+  value   = "ghs.googlehosted.com"
 }
 
 resource "cloudflare_record" "uasi-jp_cname_q" {
-  domain = "uasi.jp"
-  type   = "CNAME"
-  name   = "q"
-  value  = "domains.tumblr.com"
+  zone_id = local.uasi_jp_zone_id
+  type    = "CNAME"
+  name    = "q"
+  value   = "domains.tumblr.com"
 }
 
 variable "mx_records" {
@@ -51,12 +55,12 @@ variable "mx_records" {
 }
 
 resource "cloudflare_record" "uasi-jp_mx" {
-  count    = "${length(var.mx_records) / 2}"
-  domain   = "uasi.jp"
+  count    = length(var.mx_records) / 2
+  zone_id  = local.uasi_jp_zone_id
   type     = "MX"
   name     = "uasi.jp"
-  value    = "${var.mx_records[count.index * 2]}"
-  priority = "${var.mx_records[count.index * 2 + 1]}"
+  value    = var.mx_records[count.index * 2]
+  priority = var.mx_records[count.index * 2 + 1]
 }
 
 variable "txt_records" {
@@ -68,9 +72,9 @@ variable "txt_records" {
 }
 
 resource "cloudflare_record" "uasi-jp_txt" {
-  count  = "${length(var.txt_records)}"
-  domain = "uasi.jp"
-  type   = "TXT"
-  name   = "uasi.jp"
-  value  = "${element(var.txt_records, count.index)}"
+  count   = length(var.txt_records)
+  zone_id = local.uasi_jp_zone_id
+  type    = "TXT"
+  name    = "uasi.jp"
+  value   = element(var.txt_records, count.index)
 }

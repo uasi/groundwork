@@ -1,10 +1,12 @@
 provider "aws" {
-  access_key = "${var.aws_access_key_id}"
-  secret_key = "${var.aws_secret_access_key}"
-  region     = "ap-northeast-1"
+  version = "~> 2.0"
+  region  = "ap-northeast-1"
+  profile = "terraform-groundwork"
 }
 
 provider "cloudflare" {
-  email = "${var.cloudflare_email}"
-  token = "${var.cloudflare_token}"
+  version    = "~> 2.0"
+  email      = var.cloudflare_email
+  api_key    = var.cloudflare_api_key
+  account_id = "f60414dd0930fcfea6a07ebb25b1e58f"
 }
