@@ -28,7 +28,7 @@ resource "cloudflare_record" "exsen-org_cname_vaporbin" {
 
 resource "cloudflare_record" "exsen-org_txt" {
   zone_id = local.exsen_org_zone_id
-  type   = "TXT"
-  name   = "exsen.org"
-  value  = "keybase-site-verification=KucCG3jo_NJtA3GIxf9ozHN4DY2p80mkaI0o8K0sSLw"
+  type    = "TXT"
+  name    = "exsen.org"
+  value   = "keybase-site-verification=KucCG3jo_NJtA3GIxf9ozHN4DY2p80mkaI0o8K0sSLw"
 }
