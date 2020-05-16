@@ -84,3 +84,15 @@ resource "cloudflare_page_rule" "uasi-jp_page_rule" {
     ssl = "off"
   }
 }
+
+resource "cloudflare_zone_settings_override" "uasi-jp_zone_settings" {
+  zone_id = local.uasi_jp_zone_id
+
+  settings {
+    min_tls_version          = "1.1"
+    tls_1_3                  = "on"
+    always_use_https         = "off"
+    automatic_https_rewrites = "on"
+    ssl                      = "strict"
+  }
+}

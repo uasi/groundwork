@@ -48,3 +48,15 @@ resource "cloudflare_page_rule" "exsen-org_page_rule" {
     ssl = "off"
   }
 }
+
+resource "cloudflare_zone_settings_override" "exsen-org_zone_settings" {
+  zone_id = local.exsen_org_zone_id
+
+  settings {
+    min_tls_version          = "1.1"
+    tls_1_3                  = "on"
+    always_use_https         = "off"
+    automatic_https_rewrites = "on"
+    ssl                      = "strict"
+  }
+}
