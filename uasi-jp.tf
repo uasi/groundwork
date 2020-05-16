@@ -6,7 +6,7 @@ resource "cloudflare_record" "uasi-jp_cname" {
   zone_id = local.uasi_jp_zone_id
   type    = "CNAME"
   name    = "uasi.jp"
-  value   = "uasi-jp.herokuapp.com"
+  value   = "alias.zeit.co"
   proxied = true
 }
 
@@ -65,7 +65,7 @@ resource "cloudflare_record" "uasi-jp_mx" {
 
 variable "txt_records" {
   default = [
-    "adn_verification=uasi",
+    "alias.zeit.co",
     "google-site-verification=RwiI4xfoql9t15C1vEP7znGBSQKzkrPyKOojmgGL714",
     "keybase-site-verification=-ioMIs6ZLP6mFdsY0e1zBjGd52asZIKzWbnPJBzSjSY",
   ]
@@ -77,4 +77,14 @@ resource "cloudflare_record" "uasi-jp_txt" {
   type    = "TXT"
   name    = "uasi.jp"
   value   = element(var.txt_records, count.index)
+}
+
+resource "cloudflare_page_rule" "uasi-jp_page_rule" {
+  zone_id  = local.uasi_jp_zone_id
+  target   = "*uasi.jp/.well-known/*"
+  priority = 1
+
+  actions {
+    ssl = "off"
+  }
 }
