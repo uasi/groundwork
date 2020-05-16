@@ -1,8 +1,10 @@
 terraform {
-  backend "s3" {
-    bucket  = "exsen-terraform-states"
-    key     = "groundwork"
-    region  = "ap-northeast-1"
-    profile = "terraform-groundwork"
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "exsen"
+
+    workspaces {
+      name = "groundwork"
+    }
   }
 }

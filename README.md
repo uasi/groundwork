@@ -2,20 +2,7 @@
 
 ## Installation
 
-```bash
-cat <<END >> ~/.aws/credentials
-[terraform-groundwork]
-aws_access_key_id = "..."
-aws_secret_access_key = "..."
-END
-
-cat <<END > terraform.tfvars
-cloudflare_email = "..."
-cloudflare_api_key = "..."
-END
-
-terraform init
-```
+Set variables at https://app.terraform.io/app/exsen/workspaces/groundwork/variables and run `terraform init`
 
 ## Links
 
