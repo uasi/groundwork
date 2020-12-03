@@ -15,22 +15,6 @@ resource "cloudflare_record" "exsen-org_cname" {
   proxied = true
 }
 
-resource "cloudflare_record" "exsen-org_cname_kill1000favs" {
-  zone_id = local.exsen_org_zone_id
-  type    = "CNAME"
-  name    = "kill1000favs"
-  value   = "kill1000favs.herokuapp.com"
-  proxied = true
-}
-
-resource "cloudflare_record" "exsen-org_cname_vaporbin" {
-  zone_id = local.exsen_org_zone_id
-  type    = "CNAME"
-  name    = "vaporbin"
-  value   = "vaporbin.herokuapp.com"
-  proxied = true
-}
-
 resource "cloudflare_record" "exsen-org_txt" {
   count   = length(local.exsen_org_txt_records)
   zone_id = local.exsen_org_zone_id
