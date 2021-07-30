@@ -22,6 +22,13 @@ locals {
   ]
 }
 
+resource "cloudflare_record" "uasi-jp_a_sakura" {
+  zone_id = local.uasi_jp_zone_id
+  type    = "A"
+  name    = "sakura"
+  value   = "207.148.92.18"
+}
+
 resource "cloudflare_record" "uasi-jp_cname" {
   zone_id = local.uasi_jp_zone_id
   type    = "CNAME"
