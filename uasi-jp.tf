@@ -22,6 +22,20 @@ locals {
   ]
 }
 
+resource "cloudflare_record" "uasi-jp_a_go" {
+  zone_id = local.uasi_jp_zone_id
+  type    = "A"
+  name    = "go"
+  value   = "34.120.54.55"
+}
+
+resource "cloudflare_record" "uasi-jp_aaaa_go" {
+  zone_id = local.uasi_jp_zone_id
+  type    = "AAAA"
+  name    = "go"
+  value   = "2600:1901:0:6d85::"
+}
+
 resource "cloudflare_record" "uasi-jp_a_sakura" {
   zone_id = local.uasi_jp_zone_id
   type    = "A"
@@ -80,6 +94,13 @@ resource "cloudflare_record" "uasi-jp_txt" {
   type    = "TXT"
   name    = "uasi.jp"
   value   = element(local.uasi_jp_txt_records, count.index)
+}
+
+resource "cloudflare_record" "uasi-jp_txt_go" {
+  zone_id = local.uasi_jp_zone_id
+  type    = "TXT"
+  name    = "go.uasi.jp"
+  value   = "deno-validation=53ca1a5ab55177294fa98275"
 }
 
 resource "cloudflare_page_rule" "uasi-jp_page_rule" {
