@@ -72,6 +72,13 @@ resource "cloudflare_record" "uasi-jp_cname_home" {
   value   = "uasi.tplinkdns.com"
 }
 
+resource "cloudflare_record" "uasi-jp_cname_home_wildcard" {
+  zone_id = local.uasi_jp_zone_id
+  type    = "CNAME"
+  name    = "*.home"
+  value   = "uasi.tplinkdns.com"
+}
+
 resource "cloudflare_record" "uasi-jp_cname_m" {
   zone_id = local.uasi_jp_zone_id
   type    = "CNAME"
