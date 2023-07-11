@@ -110,6 +110,13 @@ resource "cloudflare_record" "uasi-jp_txt" {
   value   = element(local.uasi_jp_txt_records, count.index)
 }
 
+resource "cloudflare_record" "uasi-jp_txt_atproto" {
+  zone_id = local.uasi_jp_zone_id
+  type    = "TXT"
+  name    = "_atproto."
+  value   = "did=did:plc:pxm7yq4ra2mvnq3ygycmewsn"
+}
+
 resource "cloudflare_record" "uasi-jp_txt_go" {
   zone_id = local.uasi_jp_zone_id
   type    = "TXT"
