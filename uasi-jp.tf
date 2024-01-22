@@ -58,6 +58,13 @@ resource "cloudflare_record" "uasi-jp_cname_blog" {
   value   = "domains.tumblr.com"
 }
 
+resource "cloudflare_record" "uasi-jp_cname_bsky" {
+  zone_id = local.uasi_jp_zone_id
+  type    = "CNAME"
+  name    = "bsky"
+  value   = "redirect.bsky.app"
+}
+
 resource "cloudflare_record" "uasi-jp_cname_d" {
   zone_id = local.uasi_jp_zone_id
   type    = "CNAME"
