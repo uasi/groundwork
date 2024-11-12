@@ -120,7 +120,7 @@ resource "cloudflare_record" "uasi-jp_txt" {
 resource "cloudflare_record" "uasi-jp_txt_atproto" {
   zone_id = local.uasi_jp_zone_id
   type    = "TXT"
-  name    = "_atproto."
+  name    = "_atproto"
   content = "did=did:plc:pxm7yq4ra2mvnq3ygycmewsn"
 }
 
