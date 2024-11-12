@@ -26,28 +26,28 @@ resource "cloudflare_record" "uasi-jp_a_go" {
   zone_id = local.uasi_jp_zone_id
   type    = "A"
   name    = "go"
-  value   = "34.120.54.55"
+  content = "34.120.54.55"
 }
 
 resource "cloudflare_record" "uasi-jp_aaaa_go" {
   zone_id = local.uasi_jp_zone_id
   type    = "AAAA"
   name    = "go"
-  value   = "2600:1901:0:6d85::"
+  content = "2600:1901:0:6d85::"
 }
 
 resource "cloudflare_record" "uasi-jp_a_sakura" {
   zone_id = local.uasi_jp_zone_id
   type    = "A"
   name    = "sakura"
-  value   = "207.148.92.18"
+  content = "207.148.92.18"
 }
 
 resource "cloudflare_record" "uasi-jp_cname" {
   zone_id = local.uasi_jp_zone_id
   type    = "CNAME"
   name    = "uasi.jp"
-  value   = "alias.zeit.co"
+  content = "alias.zeit.co"
   proxied = true
 }
 
@@ -55,49 +55,49 @@ resource "cloudflare_record" "uasi-jp_cname_blog" {
   zone_id = local.uasi_jp_zone_id
   type    = "CNAME"
   name    = "blog"
-  value   = "domains.tumblr.com"
+  content = "domains.tumblr.com"
 }
 
 resource "cloudflare_record" "uasi-jp_cname_bsky" {
   zone_id = local.uasi_jp_zone_id
   type    = "CNAME"
   name    = "bsky"
-  value   = "redirect.bsky.app"
+  content = "redirect.bsky.app"
 }
 
 resource "cloudflare_record" "uasi-jp_cname_d" {
   zone_id = local.uasi_jp_zone_id
   type    = "CNAME"
   name    = "d"
-  value   = "ghs.googlehosted.com"
+  content = "ghs.googlehosted.com"
 }
 
 resource "cloudflare_record" "uasi-jp_cname_home" {
   zone_id = local.uasi_jp_zone_id
   type    = "CNAME"
   name    = "home"
-  value   = "uasi.tplinkdns.com"
+  content = "uasi.tplinkdns.com"
 }
 
 resource "cloudflare_record" "uasi-jp_cname_home_wildcard" {
   zone_id = local.uasi_jp_zone_id
   type    = "CNAME"
   name    = "*.home"
-  value   = "uasi.tplinkdns.com"
+  content = "uasi.tplinkdns.com"
 }
 
 resource "cloudflare_record" "uasi-jp_cname_m" {
   zone_id = local.uasi_jp_zone_id
   type    = "CNAME"
   name    = "m"
-  value   = "ghs.googlehosted.com"
+  content = "ghs.googlehosted.com"
 }
 
 resource "cloudflare_record" "uasi-jp_cname_q" {
   zone_id = local.uasi_jp_zone_id
   type    = "CNAME"
   name    = "q"
-  value   = "domains.tumblr.com"
+  content = "domains.tumblr.com"
 }
 
 resource "cloudflare_record" "uasi-jp_mx" {
@@ -105,7 +105,7 @@ resource "cloudflare_record" "uasi-jp_mx" {
   zone_id  = local.uasi_jp_zone_id
   type     = "MX"
   name     = "uasi.jp"
-  value    = local.uasi_jp_mx_records[count.index * 2]
+  content  = local.uasi_jp_mx_records[count.index * 2]
   priority = local.uasi_jp_mx_records[count.index * 2 + 1]
 }
 
@@ -114,21 +114,21 @@ resource "cloudflare_record" "uasi-jp_txt" {
   zone_id = local.uasi_jp_zone_id
   type    = "TXT"
   name    = "uasi.jp"
-  value   = element(local.uasi_jp_txt_records, count.index)
+  content = element(local.uasi_jp_txt_records, count.index)
 }
 
 resource "cloudflare_record" "uasi-jp_txt_atproto" {
   zone_id = local.uasi_jp_zone_id
   type    = "TXT"
   name    = "_atproto."
-  value   = "did=did:plc:pxm7yq4ra2mvnq3ygycmewsn"
+  content = "did=did:plc:pxm7yq4ra2mvnq3ygycmewsn"
 }
 
 resource "cloudflare_record" "uasi-jp_txt_go" {
   zone_id = local.uasi_jp_zone_id
   type    = "TXT"
   name    = "go.uasi.jp"
-  value   = "deno-validation=53ca1a5ab55177294fa98275"
+  content = "deno-validation=53ca1a5ab55177294fa98275"
 }
 
 resource "cloudflare_page_rule" "uasi-jp_page_rule" {

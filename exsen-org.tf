@@ -11,7 +11,7 @@ resource "cloudflare_record" "exsen-org_cname" {
   zone_id = local.exsen_org_zone_id
   type    = "CNAME"
   name    = "exsen.org"
-  value   = "alias.zeit.co"
+  content = "alias.zeit.co"
   proxied = true
 }
 
@@ -20,7 +20,7 @@ resource "cloudflare_record" "exsen-org_txt" {
   zone_id = local.exsen_org_zone_id
   type    = "TXT"
   name    = "exsen.org"
-  value   = element(local.exsen_org_txt_records, count.index)
+  content = element(local.exsen_org_txt_records, count.index)
 }
 
 resource "cloudflare_page_rule" "exsen-org_page_rule" {
